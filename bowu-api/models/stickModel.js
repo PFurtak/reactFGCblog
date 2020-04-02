@@ -1,6 +1,6 @@
 const db = require('./conn');
 
-class BookModel {
+class StickModel {
   constructor(id, title, mfg, parts, platform, purchaselink, pictures) {
     this.id = id;
     this.title = title;
@@ -45,4 +45,4 @@ class BookModel {
   }
 }
 
-module.exports = BookModel;
+module.exports = StickModel;
