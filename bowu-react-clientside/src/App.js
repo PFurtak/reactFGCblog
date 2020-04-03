@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import axios from 'axios';
-import Search from './components/Search';
 import ArcadeSticks from './components/ArcadeSticks';
 
 class App extends Component {
+  async componentDidMount() {
+    const res = await axios.get(`http://localhost:5000/apicall/all`);
+    console.log('axios data: ', res.data);
+    this.setState({ sticks: res.data });
+  }
+
   state = {
     sticks: [],
-    text: ''
-  };
-
-  getArcadeSticks = async sticks => {
-    const res = await axios.get(`http://localhost:5000/apicall/all`);
-
-    this.setState({ sticks: res.data });
+    review: []
   };
 
   render() {
@@ -21,9 +20,9 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <h1>Hello from react!</h1>
-        <h3>Arcade Sticks</h3>
-        <Search getArcadeSticks={this.getArcadeSticks} />
+        <h1>Block on Wake Up!</h1>
+        <h2>Arcade Sticks</h2>
+        <br />
         <ArcadeSticks sticks={sticks} />
       </div>
     );
