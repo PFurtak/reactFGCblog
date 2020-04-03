@@ -3,21 +3,23 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export class Reviews extends Component {
-  componentDidMount() {
+  async componentDidMount() {
     this.props.getReviews(this.props.match.params.id);
   }
   static propTypes = {
-    getReviews: PropTypes.func.isRequired
+    getReviews: PropTypes.func.isRequired,
   };
 
   render() {
-    const { revtitle, review } = this.props.reviews;
+    const { revtitle, review, reviews } = this.props.reviews;
+    console.log('reviews not indexed :', reviews);
+    console.log('reviews by index [0]', this.props.reviews[0]);
 
     return (
       <div>
-        <h1>Review</h1>
-        <h2>{revtitle}</h2>
-        <h3>{review}</h3>
+        <h1>Reviews</h1>
+        <h2></h2>
+        <h3></h3>
         <Link to='/' className=''>
           Return to Sticks
         </Link>

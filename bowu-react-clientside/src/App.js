@@ -10,7 +10,7 @@ class App extends Component {
     this.setState({ sticks: res.data });
   }
 
-  getReviews = async stickid => {
+  getReviews = async (stickid) => {
     const res = await axios.get(
       `http://localhost:5000/apicall/review/${stickid}`
     );
@@ -20,7 +20,7 @@ class App extends Component {
 
   state = {
     sticks: [],
-    reviews: {}
+    reviews: [],
   };
 
   render() {
@@ -34,12 +34,12 @@ class App extends Component {
           <Route
             exact
             path='/'
-            render={props => <ArcadeSticks sticks={sticks} />}
+            render={(props) => <ArcadeSticks sticks={sticks} />}
           />
           <Route
             exact
             path='/review/:id'
-            render={props => (
+            render={(props) => (
               <Reviews
                 {...props}
                 getReviews={this.getReviews}
