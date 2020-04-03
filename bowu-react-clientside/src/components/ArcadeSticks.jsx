@@ -4,10 +4,14 @@ import PropTypes from 'prop-types';
 
 const ArcadeSticks = ({ sticks }) => {
   return (
-    <div style={sticksStyle}>
-      {sticks.map(stick => (
-        <StickItem key={stick.id} stick={stick} />
-      ))}
+    <div>
+      <h2>Arcade Sticks</h2>
+
+      <div style={sticksStyle}>
+        {sticks.map(stick => (
+          <StickItem key={stick.id} stick={stick} />
+        ))}
+      </div>
     </div>
   );
 };
