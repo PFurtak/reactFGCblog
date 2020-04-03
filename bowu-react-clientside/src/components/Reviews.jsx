@@ -11,7 +11,7 @@ export class Reviews extends Component {
   };
 
   render() {
-    const { id, revtitle, review, reviewerid, stars } = this.props.reviews;
+    const { revtitle, review } = this.props.reviews;
 
     return (
       <div>

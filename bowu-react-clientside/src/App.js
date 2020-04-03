@@ -10,15 +10,17 @@ class App extends Component {
     this.setState({ sticks: res.data });
   }
 
-  getReviews = async reviews => {
-    const res = await axios.get(`http://localhost:5000/apicall/review/1`);
+  getReviews = async stickid => {
+    const res = await axios.get(
+      `http://localhost:5000/apicall/review/${stickid}`
+    );
     console.log('stick review query: ', res);
     this.setState({ reviews: res.data });
   };
 
   state = {
     sticks: [],
-    reviews: []
+    reviews: {}
   };
 
   render() {
