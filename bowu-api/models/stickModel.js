@@ -32,7 +32,7 @@ class StickModel {
       console.error('ERROR: ', error);
     }
   }
-  static async getRevById(id) {
+  static async reviewById(id) {
     try {
       const res = await db.any(`SELECT *
       FROM stickreviews
