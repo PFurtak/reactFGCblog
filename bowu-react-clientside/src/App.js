@@ -5,23 +5,14 @@ import ArcadeSticks from './components/ArcadeSticks';
 import Reviews from './components/Reviews';
 
 class App extends Component {
+  state = {
+    sticks: [],
+  };
+
   async componentDidMount() {
     const res = await axios.get(`http://localhost:5000/apicall/all`);
     this.setState({ sticks: res.data });
   }
-
-  getReviews = async (stickid) => {
-    const res = await axios.get(
-      `http://localhost:5000/apicall/review/${stickid}`
-    );
-    console.log('stick review query: ', res);
-    this.setState({ reviews: res.data });
-  };
-
-  state = {
-    sticks: [],
-    reviews: [],
-  };
 
   render() {
     const { sticks, reviews } = this.state;
